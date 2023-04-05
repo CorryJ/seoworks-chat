@@ -11,8 +11,7 @@ st.set_page_config(page_title="SEO Works", page_icon=":shark:", layout="wide",  
 st.markdown("<h1 style='text-align: center;'>The SEO Works chat robot</h1>", unsafe_allow_html=True)
 
 # Set org ID and API key
-openai.organization = "org-UhxonLlzrkpFpzI10Q4q9aAE"
-openai.api_key = "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"
+
 
 # Initialise session state variables
 if 'generated' not in st.session_state:
