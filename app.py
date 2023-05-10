@@ -1,6 +1,6 @@
-# import openai
+import openai
 import streamlit as st
-# from streamlit_chat import message
+from streamlit_chat import message
 
 # Setting page title and header
 st.set_page_config(page_title="The SEO Works chat robot", page_icon="https://www.seoworks.co.uk/wp-content/themes/seoworks/assets/images/fav.png", layout="wide",    menu_items={
