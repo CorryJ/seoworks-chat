@@ -1,4 +1,4 @@
-import openai
+# import openai
 import streamlit as st
 import pyperclip
 from streamlit_chat import message
