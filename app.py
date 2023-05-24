@@ -185,6 +185,7 @@ temperature_setting = st.sidebar.slider("Set the temperature of the response (Hi
 clear_button = st.sidebar.button("Clear Conversation", key="clear")
 
 
+openai.api_key = api_key
     
 
 if model_name == "GPT-3.5":
