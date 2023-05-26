@@ -187,7 +187,7 @@ clear_button = st.sidebar.button("Clear Conversation", key="clear")
 
 # openai.api_key = api_key
 
-openai.api_key = st.secrets(["api_key"])
+openai.api_key = st.secrets.api_key
 
 if model_name == "GPT-3.5":
     model = "gpt-3.5-turbo"
