@@ -3,12 +3,12 @@ import streamlit as st
 from streamlit_chat import message
 
 # Setting page title and header
-st.set_page_config(page_title="The SEO Works chat robot", page_icon="https://www.seoworks.co.uk/wp-content/themes/seoworks/assets/images/fav.png", layout="wide",    menu_items={
+st.set_page_config(page_title="The SEO Works OptiBot", page_icon="https://www.seoworks.co.uk/wp-content/themes/seoworks/assets/images/fav.png", layout="wide",    menu_items={
         'Get Help': 'https://www.seoworks.co.uk',
         'Report a bug': "mailto:james@seoworks.co.uk",
         'About': "Let us know what you think of the app?"
     })
-st.markdown("<h2 style='text-align: left;'>The SEO Works chat robot</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left;'>The SEO Works OptiBot</h2>", unsafe_allow_html=True)
 
 user_prompts=st.radio("Use prompts",['Yes', 'No'])
 
