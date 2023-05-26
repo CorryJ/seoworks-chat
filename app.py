@@ -180,13 +180,14 @@ st.sidebar.title("Options and info:")
 model_name = st.sidebar.radio("Choose a model:", ("GPT-3.5", "GPT-4 (Not released yet)"))
 counter_placeholder = st.sidebar.empty()
 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
-api_key = st.sidebar.text_input('API key:', 'Add your api key',  type='password') # **commented out for ease of development**
+# api_key = st.sidebar.text_input('API key:', 'Add your api key',  type='password') # **commented out for ease of development**
 temperature_setting = st.sidebar.slider("Set the temperature of the response (Higher = more random, lower = more focussed):",min_value=0.0, max_value=1.0, step=0.1)
 clear_button = st.sidebar.button("Clear Conversation", key="clear")
 
 
-openai.api_key = api_key
-    
+# openai.api_key = api_key
+
+openai.api_key = st.secrets["api_key"])
 
 if model_name == "GPT-3.5":
     model = "gpt-3.5-turbo"
