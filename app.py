@@ -11,16 +11,25 @@ st.set_page_config(page_title="The SEO Works OptiBot", page_icon="https://www.se
 st.markdown("<h2 style='text-align: left;'>The SEO Works OptiBot</h2>", unsafe_allow_html=True)
 
 # Help tips
+
 use_prompts_help = "If you want to use the templates select yes, otherwise select no"
 category_help = "Select which category of prompts you would like to use"
 
-user_prompts=st.radio("Use prompts",['Yes', 'No'], help = use_prompts_help)
+user_prompts=st.radio("Use prompts",['Yes', 'No'],help= use_prompts_help)
+
+tone_options = ['Default', 'Authoritative', 'Caring', 'Casual', 'Cheerful', 'Coarse', 'Conservative', 'Conversational', 'Creative', 'Dry', 'Edgy', 
+'Enthusiastic', 'Expository', 'Formal', 'Frank', 'Friendly', 'Fun', 'Funny', 'Humorous', 'Informative', 'Irreverent', 'Journalistic', 'Matter of fact', 
+'Nostalgic', 'Objective', 'Passionate', 'Poetic', 'Playful', 'Professional', 'Provocative', 'Quirky', 'Respectful', 'Romantic', 'Sarcastic', 'Serious', 
+'Smart', 'Snarky', 'Subjective', 'Sympathetic', 'Trendy', 'Trustworthy', 'Unapologetic', 'Upbeat', 'Witty']
+
+style_options = ['Default', 'Academic', 'Analytical', 'Argumentative', 'Conversational', 'Creative', 'Critical', 'Descriptive', 'Epigrammatic', 'Epistolary', 
+                 'Expository', 'Informative', 'Instructive', 'Journalistic', 'Metaphorical', 'Narrative', 'Persuasive', 'Poetic', 'Satirical', 'Technical']
 
 if user_prompts == "Yes":
 
     option1 = st.selectbox(
         'Category ',
-        ('Copy writing', 'SEO', 'Marketing'), help = category_help)
+        ('Copy writing', 'SEO', 'Marketing'), help= category_help)
 
     if option1 == 'Copy writing':
         option2 = st.selectbox('Sub Category',('Blog writing', 'Content writing'))
@@ -58,19 +67,19 @@ if user_prompts == "Yes":
         language = st.selectbox('Select a language',('english', 'spanish', 'welsh'))
 
     if option2 == 'Blog writing':
-        tone = st.selectbox('Select tone',('default','informative', 'trustworthy', 'professional'))
-        style = st.selectbox('Writing style',('default', 'academic', 'analytical', 'creative'))
+        tone = st.selectbox('Select tone',(tone_options))
+        style = st.selectbox('Writing style',(style_options))
         topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
 
     if option2 == 'Content writing':
-        content_writing_tone = st.selectbox('Select tone',('default','informative', 'trustworthy', 'professional'))
-        content_writing_style = st.selectbox('Writing style',('default', 'academic', 'analytical', 'creative'))
+        content_writing_tone = st.selectbox('Select tone',(tone_options))
+        content_writing_style = st.selectbox('Writing style',(style_options))
         content_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
 
 
     if option2 == 'Ecommerce SEO':
-        Ecommerce_writing_tone = st.selectbox('Select tone',('default','informative', 'trustworthy', 'professional'))
-        Ecommerce_writing_style = st.selectbox('Writing style',('default', 'academic', 'analytical', 'creative'))
+        Ecommerce_writing_tone = st.selectbox('Select tone',(tone_options))
+        Ecommerce_writing_style = st.selectbox('Writing style',(style_options))
         Ecommerce_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
 
 
@@ -144,16 +153,16 @@ if user_prompts == "Yes":
         bulk_titles_and_descriptions_products = st.text_area('Products:', value='' , height=250)
 
     if option3 == 'Meta title and description generator':
-        meta_writing_tone = st.selectbox('Select tone',('default','informative', 'trustworthy', 'professional'))
-        meta__writing_style = st.selectbox('Writing style',('default', 'academic', 'analytical', 'creative'))
+        meta_writing_tone = st.selectbox('Select tone',(tone_options))
+        meta__writing_style = st.selectbox('Writing style',(style_options))
         meta_titles_and_descriptions_keywords = st.text_area('Your keywords:', value='' , height=250)
 
     if option3 == 'Create silo structure':
         silo_keywords = st.text_area('Your keyword:', value='' , height=150, placeholder='Add ONE keyword')
 
     if option3 == 'Create buyer persona':
-        persona_writing_tone = st.selectbox('Select tone',('default','informative', 'trustworthy', 'professional'))
-        persona__writing_style = st.selectbox('Writing style',('default', 'academic', 'analytical', 'creative'))
+        persona_writing_tone = st.selectbox('Select tone',(tone_options))
+        persona__writing_style = st.selectbox('Writing style',(style_options))
         persona_sell_question = st.text_input('What do you sell:', value='' , type = 'default', placeholder= 'What do you sell')
         persona_location_question = st.text_input('Where do you sell:', value='' , type = 'default', placeholder= 'Where do you sell')
 
