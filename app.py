@@ -10,13 +10,17 @@ st.set_page_config(page_title="The SEO Works OptiBot", page_icon="https://www.se
     })
 st.markdown("<h2 style='text-align: left;'>The SEO Works OptiBot</h2>", unsafe_allow_html=True)
 
-user_prompts=st.radio("Use prompts",['Yes', 'No'])
+# Help tips
+use_prompts_help = "If you want to use the templates select yes, otherwise select no"
+category_help = "Select which category of prompts you would like to use"
+
+user_prompts=st.radio("Use prompts",['Yes', 'No'], help = use_prompts_help)
 
 if user_prompts == "Yes":
 
     option1 = st.selectbox(
         'Category ',
-        ('Copy writing', 'SEO', 'Marketing'))
+        ('Copy writing', 'SEO', 'Marketing'), help = category_help)
 
     if option1 == 'Copy writing':
         option2 = st.selectbox('Sub Category',('Blog writing', 'Content writing'))
