@@ -14,6 +14,7 @@ st.markdown("<h2 style='text-align: left;'>The SEO Works OptiBot</h2>", unsafe_a
 
 use_prompts_help = "If you want to use the templates select yes, otherwise select no"
 category_help = "Select which category of prompts you would like to use"
+help_generic = "Add something useful"
 
 user_prompts=st.radio("Use prompts",['Yes', 'No'],help= use_prompts_help)
 
@@ -32,10 +33,10 @@ if user_prompts == "Yes":
         ('Copy writing', 'SEO', 'Marketing'), help= category_help)
 
     if option1 == 'Copy writing':
-        option2 = st.selectbox('Sub Category',('Blog writing', 'Content writing'))
+        option2 = st.selectbox('Sub Category',('Blog writing', 'Content writing'), help=help_generic)
 
     if option1 == 'SEO':
-        option2 = st.selectbox('Sub Category',('Keyword research', 'Ecommerce SEO', 'On page optimisation'))
+        option2 = st.selectbox('Sub Category',('Keyword research', 'Ecommerce SEO', 'On page optimisation'),help=help_generic)
 
     if option1 == 'Marketing':
         # option2 = st.selectbox('Sub Category',('Default','Miscellaneous'))
@@ -44,127 +45,138 @@ if user_prompts == "Yes":
     if option2 == "Blog writing":
         option3 = st.selectbox('Select a template',('Generate blog post titles', 'Generate blog post descriptions', 
                                                     'Generate blog post outline','Generate complete blog post from outline', 
-                                                    'Generate complete blog post from topic','Generate introduction using framework','Generate paragraph of text'))
+                                                    'Generate complete blog post from topic','Generate introduction using framework','Generate paragraph of text'),help=help_generic)
 
     if option2 == "Content writing":
         option3 = st.selectbox('Select a template',('Content titles generator', 'Content rewriter (paste content)', 'Content brief generator', 
-                                                    'Content outline generator', 'Monthly content calendar','FAQ generator'))
+                                                    'Content outline generator', 'Monthly content calendar','FAQ generator'),help=help_generic)
 
     if option2 == "Keyword research":
         option3 = st.selectbox('Select a template',('Keyword strategy', 'Get search intent for keywords', 'Related keywords generator',
-                                                    'Long tail keywords generator'))
+                                                    'Long tail keywords generator', 'Keyword categorisation'),help=help_generic)
         
     if option2 == "Ecommerce SEO":
-        option3 = st.selectbox('Select a template',('Product description generator', 'Category description generator', 'Landing page generator', 'Bulk titles and descriptions'))
+        option3 = st.selectbox('Select a template',('Product description generator', 'Category description generator', 'Landing page generator', 'Bulk titles and descriptions'),help=help_generic)
 
     if option2 == "On page optimisation":
-        option3 = st.selectbox('Select a template',('Meta title and description generator', 'Create silo structure'))
+        option3 = st.selectbox('Select a template',('Meta title and description generator', 'Create silo structure'),help=help_generic)
 
     if option2 == "Miscellaneous":
-        option3 = st.selectbox('Select a template',('Default','Create buyer persona'))
+        option3 = st.selectbox('Select a template',('Create buyer persona','Market research', 'Subreddit research'),help=help_generic)
 
     if option2 == 'Blog writing' or option2 == "Keyword research" or option2 == "Get search intent for keywords":
-        language = st.selectbox('Select a language',('english', 'spanish', 'welsh'))
+        language = st.selectbox('Select a language',('english', 'spanish', 'welsh'),help=help_generic)
 
     if option2 == 'Blog writing':
-        tone = st.selectbox('Select tone',(tone_options))
-        style = st.selectbox('Writing style',(style_options))
-        topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
+        tone = st.selectbox('Select tone',(tone_options),help=help_generic)
+        style = st.selectbox('Writing style',(style_options),help=help_generic)
+        topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title',help=help_generic)
 
     if option2 == 'Content writing':
-        content_writing_tone = st.selectbox('Select tone',(tone_options))
-        content_writing_style = st.selectbox('Writing style',(style_options))
-        content_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
+        content_writing_tone = st.selectbox('Select tone',(tone_options),help=help_generic)
+        content_writing_style = st.selectbox('Writing style',(style_options),help=help_generic)
+        content_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title',help=help_generic)
 
 
     if option2 == 'Ecommerce SEO':
-        Ecommerce_writing_tone = st.selectbox('Select tone',(tone_options))
-        Ecommerce_writing_style = st.selectbox('Writing style',(style_options))
-        Ecommerce_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title')
+        Ecommerce_writing_tone = st.selectbox('Select tone',(tone_options),help=help_generic)
+        Ecommerce_writing_style = st.selectbox('Writing style',(style_options),help=help_generic)
+        Ecommerce_writing_topic = st.text_input('Topic:',  type='default', placeholder='add your topic or title',help=help_generic)
 
 
     if option3 == 'Generate blog post titles' or option3 == 'Generate blog post descriptions' or option3 == 'Generate blog post outline':
-        number_of_titles = st.text_input('Total titles (Add number):', '',  type='default')
+        number_of_titles = st.text_input('Total titles (Add number):', '',  type='default', help=help_generic)
 
     if option3 == 'Keyword strategy':
-        seed_keyword = st.text_input('Seed keyword:', '',  type='default')
-        keyword_number_total= st.text_input('Total no of keywords:', '',  type='default')
+        seed_keyword = st.text_input('Seed keyword:', '',  type='default', help=help_generic)
+        keyword_number_total= st.text_input('Total no of keywords:', '',  type='default', help=help_generic)
 
     if option3 == 'Generate complete blog post from topic':
-        headings_number_total= st.text_input('Total no of headings', '',  type='default')
+        headings_number_total= st.text_input('Total no of headings', '',  type='default', help=help_generic)
 
     if option3 == 'Generate complete blog post from outline':
-        blog_post_outline = st.text_area('Blog post outline',  value='', placeholder='add your detailed outline', height=200)
+        blog_post_outline = st.text_area('Blog post outline',  value='', placeholder='add your detailed outline', height=200, help=help_generic)
 
     if option3 == 'Generate introduction using framework':
         # framework_topic = st.text_input('Topic:', type='default', placeholder='Add topic')
-        framework_total_words = st.text_input('Number of keywords:', type='default', placeholder='Add number of words (must be a number)')
-        framework_keywords = st.text_area('Keywords',  value='', placeholder='add your keywords', height=200)
-        framework = st.selectbox('Framework',('AIDA (Attention, Interest Desire Attention)','PAS (Problem Agitate Solution)', 'BAB (Before After Bridge)', 'FAB (Features Advantages Benefits)'))
+        framework_total_words = st.text_input('Number of keywords:', type='default', placeholder='Add number of words (must be a number)', help=help_generic)
+        framework_keywords = st.text_area('Keywords',  value='', placeholder='add your keywords', help=help_generic, height=200)
+        framework = st.selectbox('Framework',('AIDA (Attention, Interest Desire Attention)','PAS (Problem Agitate Solution)', 'BAB (Before After Bridge)', 'FAB (Features Advantages Benefits)'), help=help_generic)
         
     if option3 == 'Generate paragraph of text':
         # framework_topic = st.text_input('Topic:', type='default', placeholder='Add topic')
-        paragraph_total_words = st.text_input('Number of words:', type='default', placeholder='Add number of words (must be a number)')
-        paragraph_keywords = st.text_area('Keywords',  value='', placeholder='add your keywords', height=200)
+        paragraph_total_words = st.text_input('Number of words:', type='default', placeholder='Add number of words (must be a number)', help=help_generic)
+        paragraph_keywords = st.text_area('Keywords',  value='', placeholder='add your keywords',help=help_generic, height=200)
         
 
     if option3 == 'Content titles generator':
         # framework_topic = st.text_input('Topic:', type='default', placeholder='Add topic')
-        content_titles_total_titles = st.text_input('Total titles:', type='default', placeholder='Add number of titles (must be a number)')
+        content_titles_total_titles = st.text_input('Total titles:', type='default', placeholder='Add number of titles (must be a number)', help=help_generic)
 
     if option3 == 'Content rewriter (paste content)':
-        rewrite_content = st.text_area('Content',  value='', placeholder='Add your content', height=250)
+        rewrite_content = st.text_area('Content',  value='', placeholder='Add your content', height=250, help=help_generic)
 
     if option3 == 'Content brief generator':
-        content_brief_main_keyword = st.text_input('Main keyword:', type='default', placeholder='Main keyword')
-        content_brief_total_keywords = st.text_input('Total keywords:', type='default', placeholder='Add number of keywords')
-        content_brief_total_questions = st.text_input('Total questions:', type='default', placeholder='Add number of questions')
+        content_brief_main_keyword = st.text_input('Main keyword:', type='default', placeholder='Main keyword', help=help_generic)
+        content_brief_total_keywords = st.text_input('Total keywords:', type='default', placeholder='Add number of keywords', help=help_generic)
+        content_brief_total_questions = st.text_input('Total questions:', type='default', placeholder='Add number of questions', help=help_generic)
 
     if option3 == 'Monthly content calendar':
-        content_calendar_artitles_per_week = st.text_input('Articles per week:', type='default', placeholder='1')
-        content_brief_number_of_months = st.text_input('Number of months:', type='default', placeholder='3')
+        content_calendar_artitles_per_week = st.text_input('Articles per week:', type='default', placeholder='1', help=help_generic)
+        content_brief_number_of_months = st.text_input('Number of months:', type='default', placeholder='3', help=help_generic)
 
     if option3 == 'FAQ generator':
-        faq_number = st.text_input('Number of FAQs:', type='default', placeholder='5')
+        faq_number = st.text_input('Number of FAQs:', type='default', placeholder='5', help=help_generic)
 
     if option3 == 'Get search intent for keywords':
-        search_intent_keywords = st.text_area('Your keywords:', value='' , height=200)
+        search_intent_keywords = st.text_area('Your keywords:', value='' , height=200, help=help_generic)
 
     if option3 == 'Related keywords generator' or option3=='Long tail keywords generator':
-        related_keywords_generator_seed = st.text_input('Seed keyword:', type = 'default', placeholder='Seed keyword')
-        related_keywords_total = st.text_input('Total keywords:', type = 'default', placeholder='Add number')
+        related_keywords_generator_seed = st.text_input('Seed keyword:', type = 'default', placeholder='Seed keyword', help=help_generic)
+        related_keywords_total = st.text_input('Total keywords:', type = 'default', placeholder='Add number', help=help_generic)
+
+    if option3 == 'Keyword categorisation' or option3=='Long tail keywords generator':
+        keyword_categorisation_list = st.text_area('List of keywords:', value='' , height=150, help=help_generic)
+        keyword_categorisation_search_volumn = st.text_area('List of keyword volumes:', value='' , height=150, help=help_generic)
+        keyword_categorisation_difficulty = st.text_area('List of associated keyword difficulties:', value='' , height=150, help=help_generic)
 
     if option3 == 'Product description generator':
-        product_description = st.text_area('Product description:', value='' , height=200)
-        product_description_total_words = st.text_input('Total words:', type = 'default', placeholder='Add number')
-        product_description_total_headings = st.text_input('Total headings:', type = 'default', placeholder='Add number')
-        product_description_total_keywords = st.text_input('Total total keywords:', type = 'default', placeholder='Add number')
+        product_description = st.text_area('Product description:', value='' , height=200, help=help_generic)
+        product_description_total_words = st.text_input('Total words:', type = 'default', placeholder='Add number', help=help_generic)
+        product_description_total_headings = st.text_input('Total headings:', type = 'default', placeholder='Add number', help=help_generic)
+        product_description_total_keywords = st.text_input('Total total keywords:', type = 'default', placeholder='Add number', help=help_generic)
 
     if option3 == 'Category description generator':
-        category = st.text_input('Category:', type = 'default', placeholder='Category')
-        category_total_words = st.text_input('Total words:', type = 'default', placeholder='Add number')
+        category = st.text_input('Category:', type = 'default', placeholder='Category', help=help_generic)
+        category_total_words = st.text_input('Total words:', type = 'default', placeholder='Add number', help=help_generic)
 
     if option3 == 'Landing page generator':
-        landing_page_generator_product = st.text_input('Product:', type = 'default', placeholder='Product')
-        landing_page_total_word = st.text_input('Total words:', type = 'default', placeholder='Add number')
-        landing_page_call_to_action = st.text_input('Call to action:', type = 'default', placeholder='Click to purchase product')
+        landing_page_generator_product = st.text_input('Product:', type = 'default', placeholder='Product', help=help_generic)
+        landing_page_total_word = st.text_input('Total words:', type = 'default', placeholder='Add number', help=help_generic)
+        landing_page_call_to_action = st.text_input('Call to action:', type = 'default', placeholder='Click to purchase product', help=help_generic)
 
     if option3 == 'Bulk titles and descriptions':
-        bulk_titles_and_descriptions_products = st.text_area('Products:', value='' , height=250)
+        bulk_titles_and_descriptions_products = st.text_area('Products:', value='' , height=250, help=help_generic)
 
     if option3 == 'Meta title and description generator':
         meta_writing_tone = st.selectbox('Select tone',(tone_options))
         meta__writing_style = st.selectbox('Writing style',(style_options))
-        meta_titles_and_descriptions_keywords = st.text_area('Your keywords:', value='' , height=250)
+        meta_titles_and_descriptions_keywords = st.text_area('Your keywords:', value='' , height=250, help=help_generic)
 
     if option3 == 'Create silo structure':
-        silo_keywords = st.text_area('Your keyword:', value='' , height=150, placeholder='Add ONE keyword')
+        silo_keywords = st.text_area('Your keyword:', value='' , height=150, placeholder='Add ONE keyword', help=help_generic)
 
     if option3 == 'Create buyer persona':
-        persona_writing_tone = st.selectbox('Select tone',(tone_options))
-        persona__writing_style = st.selectbox('Writing style',(style_options))
-        persona_sell_question = st.text_input('What do you sell:', value='' , type = 'default', placeholder= 'What do you sell')
-        persona_location_question = st.text_input('Where do you sell:', value='' , type = 'default', placeholder= 'Where do you sell')
+        persona_writing_tone = st.selectbox('Select tone',(tone_options), help=help_generic)
+        persona__writing_style = st.selectbox('Writing style',(style_options), help=help_generic)
+        persona_sell_question = st.text_input('What do you sell:', value='' , type = 'default', placeholder= 'What do you sell', help=help_generic)
+        persona_location_question = st.text_input('Where do you sell:', value='' , type = 'default', placeholder= 'Where do you sell', help=help_generic)
+
+    if option3 == 'Market research':
+        market_research_topic = st.text_input('What is the topic:', value='' , type = 'default', placeholder= 'Add topic area', help=help_generic)
+
+    if option3 == 'Subreddit research':
+        subreddits_research_topic = st.text_input('What is the topic:', value='' , type = 'default', placeholder= 'Add topic area', help=help_generic)
 
 if user_prompts == "No":
     option3 = "Manual"
@@ -247,11 +259,10 @@ response_container = st.container()
 # container for text box
 container = st.container()
 
-
 if option3 == "Manual":
 
     with container:
-        with st.form(key='my_form', clear_on_submit=True):
+        with st.form(key='my_form', clear_on_submit=False):
             user_input = st.text_area("Add your prompt:", key='input', value="",height=150, placeholder='Write away')
 
             submit_button = st.form_submit_button(label='Generate response')        
@@ -290,6 +301,7 @@ who writes catchy titles for blog posts. You have a " +tone + " tone of voice. "
             st.session_state['generated'].append(output)
             st.session_state['model_name'].append(model_name)
             st.session_state['total_tokens'].append(total_tokens)
+            
 
         # from https://openai.com/pricing#language-models
             if model_name == "GPT-3.5":
@@ -343,6 +355,33 @@ navigational, informational, local or investigational). The fourth column will b
 about that keyword. The fifth column will be called Description: and will be a catchy meta description with a maximum length of 160 words. The meta description should ideally \
 have a call to action. Do not use single quotes, double quotes or any other enclosing characters in any of the columns you fill in. Do not self reference. Do not explain what \
 you are doing. Just return your suggestions in the table.", height=400)
+
+            submit_button = st.form_submit_button(label='Generate response')        
+            
+        if submit_button and user_input:
+            output, total_tokens, prompt_tokens, completion_tokens = generate_response(user_input)
+            st.session_state['past'].append(user_input)
+            st.session_state['generated'].append(output)
+            st.session_state['model_name'].append(model_name)
+            st.session_state['total_tokens'].append(total_tokens)
+
+        # from https://openai.com/pricing#language-models
+            if model_name == "GPT-3.5":
+                cost = total_tokens * 0.002 / 1000
+            else:
+                cost = (prompt_tokens * 0.03 + completion_tokens * 0.06) / 1000
+
+            st.session_state['cost'].append(cost)
+            st.session_state['total_cost'] += cost
+
+if option3 == "Keyword categorisation":
+
+    with container:
+        with st.form(key='my_form_2', clear_on_submit=True):
+            user_input = st.text_area("Add your prompt:", key='input', value="Please ignore all previous instructions. Filter the below list of keywords \
+into categories, target persona, search intent, search volume and add information to a six-column table: List of keywords – " + "["+ keyword_categorisation_list + "]" + ", Keyword \
+Search Volume ["+keyword_categorisation_search_volumn+"]"+" and Keyword Difficulties ["+keyword_categorisation_difficulty+"]. Do not self reference. Do not explain what \
+you are doing.", height=200)
 
             submit_button = st.form_submit_button(label='Generate response')        
             
@@ -977,6 +1016,58 @@ reference. Do not explain what you are doing." , height=275)
 
             st.session_state['cost'].append(cost)
             st.session_state['total_cost'] += cost 
+
+if option3 == "Market research":
+
+    with container:
+        with st.form(key='my_form_24', clear_on_submit=True):
+            user_input = st.text_area("Prompt template:", key='input', value= "Firstly, what are the most popular " +"'"+ market_research_topic +"'"+" websites? Please provide the URLs of these websites. \
+Secondly, looking at all of those sites (and those sites only) if you had to break out all of the things they write about into 5-15 high level categories, what would those categories be? \
+Give a brief description of each category, and a couple of specific examples of things they've written about that would fit into that category." , height=150)
+
+            submit_button = st.form_submit_button(label='Generate response')    
+            
+        if submit_button and user_input:
+            output, total_tokens, prompt_tokens, completion_tokens = generate_response(user_input)
+            st.session_state['past'].append(user_input)
+            st.session_state['generated'].append(output)
+            st.session_state['model_name'].append(model_name)
+            st.session_state['total_tokens'].append(total_tokens)
+
+        # from https://openai.com/pricing#language-models
+            if model_name == "GPT-3.5":
+                cost = total_tokens * 0.002 / 1000
+            else:
+                cost = (prompt_tokens * 0.03 + completion_tokens * 0.06) / 1000
+
+            st.session_state['cost'].append(cost)
+            st.session_state['total_cost'] += cost 
+
+if option3 == "Subreddit research":
+
+    with container:
+        with st.form(key='my_form_25', clear_on_submit=True):
+            user_input = st.text_area("Prompt template:", key='input', value= "Firstly, what are the most popular subreddits about " +"'"+ subreddits_research_topic+"'"+". Secondly, what are \
+the most popular topics those subreddits talk about? Thirdly, what are some specific titles to popular threads from the popular topics you just listed?" , height=150)
+
+            submit_button = st.form_submit_button(label='Generate response')    
+            
+        if submit_button and user_input:
+            output, total_tokens, prompt_tokens, completion_tokens = generate_response(user_input)
+            st.session_state['past'].append(user_input)
+            st.session_state['generated'].append(output)
+            st.session_state['model_name'].append(model_name)
+            st.session_state['total_tokens'].append(total_tokens)
+
+        # from https://openai.com/pricing#language-models
+            if model_name == "GPT-3.5":
+                cost = total_tokens * 0.002 / 1000
+            else:
+                cost = (prompt_tokens * 0.03 + completion_tokens * 0.06) / 1000
+
+            st.session_state['cost'].append(cost)
+            st.session_state['total_cost'] += cost 
+
 
 # else:
 #       with container:
