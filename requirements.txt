@@ -1,3 +1,3 @@
-openai==1.16.0
+openai==0.28
 streamlit
 streamlit-chat
